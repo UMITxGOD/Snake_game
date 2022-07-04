@@ -64,12 +64,11 @@ function createFood() {
   }
   food_X_Coordinate = randomFood(0, canvasWidth - unitSize);
   food_Y_Coordinate = randomFood(0, canvasHeight - unitSize);
-  context.fillStyle = foodColor;
-  context.fillRect(food_X_Coordinate, food_Y_Coordinate, unitSize, unitSize);
 }
 
 function drawFood() {
-  createFood();
+  context.fillStyle = foodColor;
+  context.fillRect(food_X_Coordinate, food_Y_Coordinate, unitSize, unitSize);
 }
 
 function drawSnake() {
@@ -158,7 +157,7 @@ function changeDirection(event) {
 
 function restartGame() {
   score = 0;
-  xVelocity = 0;
+  xVelocity = unitSize;
   yVelocity = 0;
   snake = [
     { x: unitSize * 4, y: 0 }, //    ...............................
@@ -167,5 +166,6 @@ function restartGame() {
     { x: unitSize * 1, y: 0 }, //    :                             :
     { x: unitSize * 0, y: 0 }, //    :.............................:
   ];
+  running = false;
   gameStart();
 }
